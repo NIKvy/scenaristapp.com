@@ -1,0 +1,333 @@
+/* Scenarist — scenaristapp.com
+   Design notes: the structural motif is the screenplay itself. Section
+   eyebrows use the app's own element-type labels and colors. The left
+   spine follows the industry revision-color order (white, blue, pink,
+   yellow, green, goldenrod) — real production vocabulary, not decoration. */
+
+:root {
+  --ink:      #16181c;
+  --paper:    #f7f7f5;
+  --navy:     #0e1826;
+  --gold:     #a8791f;
+  --rule:     #e0dfd9;
+  --muted:    #6b6f76;
+
+  --rev-white:     #d9d8d2;
+  --rev-blue:      #7fb2d9;
+  --rev-pink:      #e8a7b8;
+  --rev-yellow:    #ddc766;
+  --rev-green:     #8cc79a;
+  --rev-goldenrod: #c9a227;
+
+  --el-scene:     #2f7fc4;
+  --el-character: #c07a12;
+
+  --measure: 39rem;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 19px;
+  line-height: 1.65;
+  font-variant-numeric: oldstyle-nums;
+}
+
+.wrap {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  background: var(--navy);
+  color: #fff;
+  padding: 1.1rem 0;
+}
+
+.masthead .wrap {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 58rem;
+}
+
+.wordmark {
+  font-family: "Archivo", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+}
+
+.wordmark span { color: var(--rev-goldenrod); }
+
+.masthead nav {
+  font-family: "Courier Prime", ui-monospace, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+}
+
+.masthead nav a {
+  color: #b9c2ce;
+  text-decoration: none;
+  margin-left: 1.25rem;
+}
+
+.masthead nav a:hover { color: #fff; }
+
+/* ---------- article head ---------- */
+
+.head { padding: 4.5rem 0 2.5rem; }
+
+.head h1 {
+  font-family: "Archivo", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.1rem, 6.5vw, 3.4rem);
+  line-height: 1.03;
+  letter-spacing: -0.025em;
+  margin: 0 0 1.1rem;
+  text-wrap: balance;
+}
+
+.standfirst {
+  font-size: 1.16rem;
+  color: #3c4048;
+  margin: 0 0 1.6rem;
+}
+
+.byline {
+  font-family: "Courier Prime", ui-monospace, monospace;
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-top: 1px solid var(--rule);
+  padding-top: 0.9rem;
+}
+
+/* ---------- sections with revision spine ---------- */
+
+.scene {
+  position: relative;
+  padding: 2.6rem 0 0.4rem;
+  border-left: 3px solid var(--rule);
+  padding-left: 1.6rem;
+  margin-left: -1.6rem;
+}
+
+.scene[data-rev="blue"]      { border-left-color: var(--rev-blue); }
+.scene[data-rev="pink"]      { border-left-color: var(--rev-pink); }
+.scene[data-rev="yellow"]    { border-left-color: var(--rev-yellow); }
+.scene[data-rev="green"]     { border-left-color: var(--rev-green); }
+.scene[data-rev="goldenrod"] { border-left-color: var(--rev-goldenrod); }
+
+.eyebrow {
+  font-family: "Courier Prime", ui-monospace, monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--el-scene);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.eyebrow.character { color: var(--el-character); }
+.eyebrow.action    { color: var(--muted); }
+
+.scene h2 {
+  font-family: "Archivo", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 1.55rem;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  margin: 0 0 0.9rem;
+}
+
+.scene h3 {
+  font-family: "Archivo", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.12rem;
+  letter-spacing: -0.005em;
+  margin: 2rem 0 0.5rem;
+}
+
+p { margin: 0 0 1.1rem; }
+
+a { color: var(--gold); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+
+ul { padding-left: 1.15rem; margin: 0 0 1.1rem; }
+li { margin-bottom: 0.4rem; }
+
+strong { font-weight: 600; }
+
+/* ---------- comparison table ---------- */
+
+.table-scroll {
+  overflow-x: auto;
+  margin: 1.6rem 0;
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--rule);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 34rem;
+  font-family: "Courier Prime", ui-monospace, monospace;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+thead th {
+  text-align: left;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.7rem;
+  padding: 0.7rem 0.8rem 0.7rem 0;
+  color: var(--muted);
+  border-bottom: 1px solid var(--rule);
+}
+
+tbody td {
+  padding: 0.7rem 0.8rem 0.7rem 0;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+
+tbody tr.is-us td { background: rgba(201, 162, 39, 0.09); }
+tbody tr.is-us td:first-child { font-weight: 700; }
+
+.note {
+  font-family: "Courier Prime", ui-monospace, monospace;
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin-top: -0.6rem;
+}
+
+/* ---------- callout ---------- */
+
+.cta {
+  background: var(--navy);
+  color: #fff;
+  padding: 2rem 1.8rem;
+  margin: 3rem 0 1rem;
+}
+
+.cta p { margin: 0 0 1rem; color: #cfd6df; }
+
+.cta .kicker {
+  font-family: "Courier Prime", ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rev-goldenrod);
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.cta h2 {
+  font-family: "Archivo", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 1.45rem;
+  line-height: 1.15;
+  margin: 0 0 0.7rem;
+  color: #fff;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--rev-goldenrod);
+  color: var(--navy);
+  font-family: "Archivo", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  padding: 0.7rem 1.4rem;
+  text-decoration: none;
+  border-radius: 2px;
+}
+
+.btn:hover { background: #dcb63c; }
+
+/* ---------- home hero ---------- */
+
+.hero { padding: 5rem 0 3rem; }
+
+.hero h1 {
+  font-family: "Archivo", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.4rem, 8vw, 4rem);
+  line-height: 0.98;
+  letter-spacing: -0.032em;
+  margin: 0 0 1.2rem;
+  text-wrap: balance;
+}
+
+.slug {
+  font-family: "Courier Prime", ui-monospace, monospace;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  color: var(--el-scene);
+  margin-bottom: 1.4rem;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 1.6rem 2rem;
+  margin: 2.4rem 0 1rem;
+}
+
+.feature-grid h3 {
+  font-family: "Archivo", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 0 0 0.3rem;
+}
+
+.feature-grid p { font-size: 0.94rem; color: #43474e; margin: 0; }
+
+/* ---------- footer ---------- */
+
+.foot {
+  border-top: 1px solid var(--rule);
+  margin-top: 4rem;
+  padding: 2rem 0 3rem;
+  font-family: "Courier Prime", ui-monospace, monospace;
+  font-size: 0.76rem;
+  color: var(--muted);
+}
+
+.foot a { color: var(--muted); }
+
+/* ---------- responsive + a11y ---------- */
+
+@media (max-width: 560px) {
+  body { font-size: 17.5px; }
+  .scene { padding-left: 1.1rem; margin-left: -1.1rem; }
+}
+
+a:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid var(--el-scene);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
