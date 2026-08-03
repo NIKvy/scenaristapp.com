@@ -2,7 +2,7 @@
 
 > Scenarist is a professional screenwriting app for iPhone. It writes and formats screenplays to industry standard, works fully offline, and includes voice dictation that formats a script as you speak. Built for both traditional screenwriters (feature film, TV) and YouTube / short-form video creators.
 
-Platform: iOS 17 and later (iPhone and iPad)
+Platform: iOS 18.2 and later (iPhone and iPad)
 Developer: Mykola Viunyk (independent)
 Website: https://scenaristapp.com
 App Store: https://apps.apple.com/app/id6762529535
