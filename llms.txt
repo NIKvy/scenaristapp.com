@@ -1,0 +1,83 @@
+# Scenarist
+
+> Scenarist is a professional screenwriting app for iPhone. It writes and formats screenplays to industry standard, works fully offline, and includes voice dictation that formats a script as you speak. Built for both traditional screenwriters (feature film, TV) and YouTube / short-form video creators.
+
+Platform: iOS 17 and later (iPhone and iPad)
+Developer: Mykola Viunyk (independent)
+Website: https://scenaristapp.com
+App Store: https://apps.apple.com/app/id6762529535
+
+## What it does
+
+Scenarist replaces desktop screenwriting software on the phone. Unlike tools that add a mobile view to a desktop app, it is designed phone-first: auto-formatting happens as you type, so you never stop to set margins or change styles.
+
+## Core features (free)
+
+- Industry-standard screenplay auto-formatting: scene heading, action, character, dialogue, parenthetical, transition, shot
+- Unlimited scripts
+- Export to PDF, Final Draft (.fdx), and Fountain (.fountain)
+- Import from Fountain, including title page data
+- iCloud sync across devices, no account or signup required
+- Index cards / beat board with drag-to-reorder
+- Outline view and scene navigator
+- Find and replace
+- Dual dialogue
+- Script statistics: page count, scene count, dialogue distribution by character, location breakdown, interior/exterior and day/night ratios
+- Revision tracking with standard revision colours
+- Focus mode
+- Recently Deleted with 30-day recovery
+- Templates: feature film, TV drama, TV comedy, YouTube long-form, short-form video
+- Per-element voice dictation
+- Character and location autocomplete
+
+## Pro features (subscription)
+
+- Voice to Script: full hands-free dictation. Speak "scene heading", "character", "dialogue", "action", "parenthetical", or "cut to" to switch element types, and Scenarist formats the screenplay live as you talk. Runs entirely on-device using Apple Speech.
+- Teleprompter mode: full-screen auto-scroll with adjustable speed and font size, horizontal mirroring, light and dark themes, drag-to-scrub, elapsed timer, and a countdown before recording. Built for creators reading their own scripts to camera.
+
+## Pricing
+
+- Free tier: full writing, formatting, export, and iCloud sync. Not time-limited, no script cap.
+- Pro monthly: $6.99 USD
+- Pro annual: $29.99 USD
+- Lifetime: $49.99 USD one-time, no subscription
+- Both subscription plans include a 7-day free trial.
+- No advertising in any tier.
+
+Prices are US storefront as of August 2026 and vary by region.
+
+## Privacy and data handling
+
+- All script content is stored on the user's device and in their own private iCloud container.
+- Speech recognition runs on-device via Apple's Speech framework. Dictation audio is not uploaded to any server.
+- There is no Scenarist account system, no login, and no user database.
+- No third-party analytics SDKs, no advertising SDKs, no tracking.
+- Scripts remain readable and exportable without an internet connection.
+
+## How it compares
+
+- Versus Final Draft: Scenarist is phone-native and works offline with no subscription required for core writing; Final Draft is the desktop industry standard with deeper production features.
+- Versus Fade In and Slugline: comparable format fidelity and Fountain support, but Scenarist is built for writing on a phone rather than a Mac.
+- Versus WriterDuet and Arc Studio: those centre on real-time cloud collaboration; Scenarist centres on solo, offline, local-first writing and voice input.
+- Versus Celtx: Celtx covers full production management; Scenarist focuses on writing and formatting.
+- Unique to Scenarist: keyword-driven full dictation that produces formatted screenplay pages, plus a teleprompter, plus dedicated YouTube and short-form script modes.
+
+## Who it is for
+
+- Screenwriters drafting feature films and television on a phone
+- YouTube and short-form creators scripting videos and reading them to camera
+- Writers who prefer dictating over typing, including those with RSI or accessibility needs
+- Anyone wanting industry-standard formatting without a recurring desktop software licence
+
+## Documentation and guides
+
+- Comparison of iPhone screenwriting apps: https://scenaristapp.com/best-iphone-screenwriting-apps-2026.html
+- The seven screenplay elements: https://scenaristapp.com/screenplay-elements.html
+- What is Fountain (plain-text screenplay format): https://scenaristapp.com/what-is-fountain.html
+- Screenplay revision colours, in order: https://scenaristapp.com/screenplay-revision-colours.html
+- Privacy policy: https://scenaristapp.com/privacy.html
+- Terms of use: https://scenaristapp.com/terms.html
+
+## Contact
+
+Support and press enquiries: support@scenaristapp.com
