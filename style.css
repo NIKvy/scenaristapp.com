@@ -21,6 +21,7 @@
 
   --el-scene:     #2f7fc4;
   --el-character: #c07a12;
+  --el-shot:      #8a52b8;
 
   --measure: 39rem;
 }
@@ -127,6 +128,7 @@ body {
   margin-left: -1.6rem;
 }
 
+.scene[data-rev="white"]     { border-left-color: var(--rev-white); }
 .scene[data-rev="blue"]      { border-left-color: var(--rev-blue); }
 .scene[data-rev="pink"]      { border-left-color: var(--rev-pink); }
 .scene[data-rev="yellow"]    { border-left-color: var(--rev-yellow); }
@@ -146,6 +148,7 @@ body {
 
 .eyebrow.character { color: var(--el-character); }
 .eyebrow.action    { color: var(--muted); }
+.eyebrow.shot      { color: var(--el-shot); }
 
 .scene h2 {
   font-family: "Archivo", system-ui, sans-serif;
@@ -302,6 +305,111 @@ tbody tr.is-us td:first-child { font-weight: 700; }
 
 .feature-grid p { font-size: 0.94rem; color: #43474e; margin: 0; }
 
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem 1.4rem;
+  margin: 0;
+}
+
+.quiet {
+  font-family: "Courier Prime", ui-monospace, monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+}
+
+.quiet:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+.aside {
+  font-family: "Courier Prime", ui-monospace, monospace;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 1.6rem;
+}
+
+/* ---------- screenshots ----------
+   The gallery sits outside the reading column, as wide as the masthead, so
+   the iPad shots are big enough to read. Each strip scrolls sideways on its
+   own; the page itself never does. */
+
+.gallery {
+  max-width: 58rem;
+  margin: 1.4rem auto 0.4rem;
+  padding: 0 1.5rem;
+}
+
+.gallery-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1.6rem 0 0.7rem;
+}
+
+.gallery-label {
+  font-family: "Courier Prime", ui-monospace, monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0;
+}
+
+.strip-nav { display: flex; gap: 0.4rem; }
+.strip-nav[hidden] { display: none; }
+
+.strip-nav button {
+  font-family: "Courier Prime", ui-monospace, monospace;
+  font-size: 0.9rem;
+  line-height: 1;
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.strip-nav button:hover:not(:disabled) { border-color: var(--ink); }
+.strip-nav button:disabled { opacity: 0.35; cursor: default; }
+
+.strip {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  list-style: none;
+  margin: 0;
+  padding: 0.2rem 0 1.6rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule) transparent;
+}
+
+.strip li {
+  flex: 0 0 auto;
+  margin: 0;
+  scroll-snap-align: start;
+}
+
+.strip-pad li   { width: min(86%, 40rem); }
+.strip-phone li { width: clamp(8.5rem, 36vw, 11.4rem); }
+
+.strip img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  background: var(--navy);
+  box-shadow: 0 1px 2px rgba(14, 24, 38, 0.12), 0 10px 18px -12px rgba(14, 24, 38, 0.45);
+}
+
 /* ---------- footer ---------- */
 
 .foot {
@@ -323,7 +431,9 @@ tbody tr.is-us td:first-child { font-weight: 700; }
 }
 
 a:focus-visible,
-.btn:focus-visible {
+.btn:focus-visible,
+.strip:focus-visible,
+.strip-nav button:focus-visible {
   outline: 2px solid var(--el-scene);
   outline-offset: 3px;
 }

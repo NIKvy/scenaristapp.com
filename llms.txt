@@ -9,20 +9,22 @@ App Store: https://apps.apple.com/app/id6762529535
 
 ## What it does
 
-Scenarist replaces desktop screenwriting software on the phone. Unlike tools that add a mobile view to a desktop app, it is designed phone-first: auto-formatting happens as you type, so you never stop to set margins or change styles. It requires no account, no login, and no internet connection.
+Scenarist replaces desktop screenwriting software on the phone. Unlike tools that add a mobile view to a desktop app, it is designed phone-first: auto-formatting happens as you type, so you never stop to set margins or change styles. On iPad it shows the outline and the script list beside the page and works with a hardware keyboard and shortcuts. It requires no account, no login, and no internet connection.
 
 ## Free features
 
-Free is not a trial. There is no time limit and no script cap.
+Free is not a trial: there is no time limit. The free plan holds up to 3 scripts at a time; Pro removes the cap. People who installed Scenarist before version 1.6 keep unlimited scripts on the free plan.
 
 - Industry-standard screenplay auto-formatting: scene heading, action, character, dialogue, parenthetical, transition, shot
-- Unlimited scripts
-- Export to PDF and Fountain (.fountain)
+- Up to 3 scripts at a time, with every editing tool
+- Export to PDF and Fountain (.fountain). Free PDFs carry a small "Written with Scenarist" line at the foot of each page.
 - Import from Fountain, including title page data
 - iCloud sync across devices, no account or signup required
 - Outline view and scene navigator
 - Find and replace
-- Dual dialogue
+- Dual dialogue, printed side by side
+- Read aloud with a narrator voice
+- Keyboard shortcuts for iPad hardware keyboards
 - Focus mode
 - Recently Deleted with 30-day recovery
 - Templates: feature film, TV drama, TV comedy, YouTube long-form, short-form video
@@ -32,6 +34,9 @@ Free is not a trial. There is no time limit and no script cap.
 
 ## Pro features (subscription or one-time Lifetime unlock)
 
+- Unlimited scripts
+- Clean PDF export, without the "Written with Scenarist" line
+- Table read: a different voice for each character, with per-character pitch and speed, and mute to read a part yourself
 - Voice to Script: full hands-free dictation. Speak "scene heading", "character", "dialogue", "action", "parenthetical", or "cut to" to switch element types, and Scenarist formats the screenplay live as you talk. Runs entirely on-device using Apple Speech.
 - Final Draft (.fdx) export
 - Index cards / beat board with drag-to-reorder, in grid, corkboard and timeline layouts
@@ -42,14 +47,14 @@ Free is not a trial. There is no time limit and no script cap.
 
 ## Pricing
 
-- Free tier: full writing, formatting, PDF and Fountain export, and iCloud sync. Not time-limited, no script cap.
+- Free tier: full writing and formatting for up to 3 scripts at a time, PDF and Fountain export, and iCloud sync. Not time-limited.
 - Pro monthly: $6.99 USD
 - Pro annual: $29.99 USD
-- Lifetime: $49.99 USD one-time, no subscription
+- Lifetime: $89.99 USD one-time, no subscription
 - Both subscription plans include a 7-day free trial.
 - No advertising in any tier.
 
-Prices are US storefront as of August 2026 and vary by region.
+Prices are US storefront as of October 2026 and vary by region.
 
 ## Privacy and data handling
 
