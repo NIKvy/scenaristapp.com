@@ -59,7 +59,7 @@ Prices are US storefront as of October 2026 and vary by region.
 ## Privacy and data handling
 
 - All script content is stored on the user's device and in their own private iCloud container.
-- Speech recognition runs on-device via Apple's Speech framework. Dictation audio is not uploaded to any server.
+- Speech recognition uses Apple's Speech framework: on the device whenever it can recognise the language offline, otherwise through Apple's speech service. Scenarist never records, stores or uploads audio itself.
 - There is no Scenarist account system, no login, and no user database.
 - No third-party analytics SDKs, no advertising SDKs, no tracking.
 - Scripts remain readable, editable, and exportable with no internet connection.
