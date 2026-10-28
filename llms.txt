@@ -1,15 +1,18 @@
 # Scenarist
 
-> Scenarist is a professional screenwriting app for iPhone and iPad. It writes and formats screenplays to industry standard, works fully offline with no account, and includes voice dictation that formats a script as you speak. Built for both traditional screenwriters (feature film, TV) and YouTube / short-form video creators.
+> Scenarist is a professional screenwriting app for iPhone, iPad and Mac. It writes and formats screenplays to industry standard, works offline with no account, and includes voice dictation that formats a script as you speak. Built for both traditional screenwriters (feature film, TV) and YouTube / short-form video creators. The app is in English, German, Italian, Spanish, French, Portuguese (Brazil) and Russian.
 
-Platform: iOS 18.2 and later (iPhone and iPad)
+Platform: iOS and iPadOS 18.2 and later (iPhone and iPad); on Mac, the iPad app runs on Macs with Apple silicon
+Languages: English, German, Italian, Spanish, French, Portuguese (Brazil), Russian (voice dictation and its spoken commands: English only)
 Developer: Mykola Viunyk (independent)
 Website: https://scenaristapp.com
+Lessons: https://scenaristapp.com/learn/
+YouTube: https://www.youtube.com/@Scenaristapp
 App Store: https://apps.apple.com/app/id6762529535
 
 ## What it does
 
-Scenarist replaces desktop screenwriting software on the phone. Unlike tools that add a mobile view to a desktop app, it is designed phone-first: auto-formatting happens as you type, so you never stop to set margins or change styles. On iPad it shows the outline and the script list beside the page and works with a hardware keyboard and shortcuts. It requires no account, no login, and no internet connection.
+Scenarist replaces desktop screenwriting software on the phone. Unlike tools that add a mobile view to a desktop app, it is designed phone-first: auto-formatting happens as you type, so you never stop to set margins or change styles. On iPad and Mac it shows the outline and the script list beside the page and works with a hardware keyboard and shortcuts. It requires no account and no login, and writing needs no internet connection.
 
 ## Free features
 
@@ -18,26 +21,27 @@ Free is not a trial: there is no time limit. The free plan holds up to 3 scripts
 - Industry-standard screenplay auto-formatting: scene heading, action, character, dialogue, parenthetical, transition, shot
 - Up to 3 scripts at a time, with every editing tool
 - Export to PDF and Fountain (.fountain). Free PDFs carry a small "Written with Scenarist" line at the foot of each page.
-- Import from Fountain, including title page data
-- iCloud sync across devices, no account or signup required
+- Import from Final Draft (.fdx) and Fountain, including title page data
+- iCloud sync across iPhone, iPad and Mac, no account or signup required
 - Outline view and scene navigator
 - Find and replace
 - Dual dialogue, printed side by side
 - Read aloud with a narrator voice
-- Keyboard shortcuts for iPad hardware keyboards
+- Keyboard shortcuts with a hardware keyboard on iPad and Mac
 - Focus mode
 - Recently Deleted with 30-day recovery
 - Templates: feature film, TV drama, TV comedy, YouTube long-form, short-form video
-- Per-element voice dictation: say "interior coffee shop day" and get INT. COFFEE SHOP - DAY
+- Per-element voice dictation (English): say "interior coffee shop day" and get INT. COFFEE SHOP - DAY
 - Character and location autocomplete
 - Notes and bookmarks
 
 ## Pro features (subscription or one-time Lifetime unlock)
 
 - Unlimited scripts
+- Smart Keys: keys above the keyboard that follow the line being written: INT./EXT., the script's locations and DAY/NIGHT on a scene heading; the cast, (V.O.) and (CONT'D) on a character line; hooks, B-roll shots and calls to action in YouTube and Short Form scripts
 - Clean PDF export, without the "Written with Scenarist" line
 - Table read: a different voice for each character, with per-character pitch and speed, and mute to read a part yourself
-- Voice to Script: full hands-free dictation. Speak "scene heading", "character", "dialogue", "action", "parenthetical", or "cut to" to switch element types, and Scenarist formats the screenplay live as you talk. Runs entirely on-device using Apple Speech.
+- Voice to Script: full hands-free dictation. Speak "scene heading", "character", "dialogue", "action", "parenthetical", or "cut to" to switch element types, and Scenarist formats the screenplay live as you talk. Uses Apple Speech: on the device where it can recognise English offline, otherwise through Apple's speech service. Spoken commands are English only.
 - Final Draft (.fdx) export
 - Index cards / beat board with drag-to-reorder, in grid, corkboard and timeline layouts
 - Script statistics: page count, scene count, dialogue distribution by character, location breakdown, interior/exterior and day/night ratios
@@ -68,19 +72,27 @@ Prices are US storefront as of October 2026 and vary by region.
 
 - Versus Final Draft: Scenarist is phone-native and works offline with no subscription required for core writing; Final Draft is the desktop industry standard with deeper production features.
 - Versus Fade In: Fade In's mobile app has been discontinued and replaced by Fade In Access, a browser-based service. Scenarist is a native iOS app that works with no connection.
-- Versus Slugline and Highland: comparable Fountain fidelity, but those are macOS applications; Scenarist runs on iPhone and iPad.
+- Versus Slugline and Highland: comparable Fountain fidelity, but those are built for the Mac first; Scenarist is built for iPhone and iPad first, and also runs on Mac.
 - Versus WriterDuet and Arc Studio: those centre on real-time cloud collaboration; Scenarist centres on solo, offline, local-first writing and voice input.
 - Versus Celtx: Celtx covers full production management; Scenarist focuses on writing and formatting.
 - Unique to Scenarist: keyword-driven full dictation that produces formatted screenplay pages, plus a teleprompter, plus dedicated YouTube and short-form script modes.
-- Known limitations: no real-time collaboration, no desktop or web version, and no Android version.
+- Known limitations: no real-time collaboration, no Windows or web version, and no Android version. Voice dictation is English only.
 
 ## Who it is for
 
 - Screenwriters drafting feature films and television on a phone or tablet
 - Writers who need a native app that works offline, including on planes and underground transit
+- Writers working in German, Italian, Spanish, French, Portuguese or Russian, with the app in their language
 - YouTube and short-form creators scripting videos and reading them to camera
 - Writers who prefer dictating over typing, including those with RSI or accessibility needs
 - Anyone wanting industry-standard formatting without a recurring desktop software licence
+
+## Lessons (video, each written out on the site)
+
+- All lessons and guides: https://scenaristapp.com/learn/
+- Lesson 1, How to write a screenplay on iPhone (4:05): https://scenaristapp.com/learn/how-to-write-a-screenplay-on-iphone.html (video: https://www.youtube.com/watch?v=AUMWVHxgoEA)
+- Lesson 2, How to format a phone call in a screenplay: one side only, V.O., or intercut (2:18): https://scenaristapp.com/learn/how-to-format-a-phone-call-in-a-screenplay.html (video: https://www.youtube.com/watch?v=to3dGMnCpXE)
+- YouTube channel: https://www.youtube.com/@Scenaristapp
 
 ## Documentation and guides
 

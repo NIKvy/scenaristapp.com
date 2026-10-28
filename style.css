@@ -172,6 +172,7 @@ p { margin: 0 0 1.1rem; }
 a { color: var(--gold); text-decoration-thickness: 1px; text-underline-offset: 2px; }
 
 ul { padding-left: 1.15rem; margin: 0 0 1.1rem; }
+ol { padding-left: 1.35rem; margin: 0 0 1.1rem; }
 li { margin-bottom: 0.4rem; }
 
 strong { font-weight: 600; }
@@ -305,6 +306,8 @@ tbody tr.is-us td:first-child { font-weight: 700; }
 
 .feature-grid p { font-size: 0.94rem; color: #43474e; margin: 0; }
 
+.feature-grid.guides { margin-top: 1rem; }
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -410,6 +413,308 @@ tbody tr.is-us td:first-child { font-weight: 700; }
   box-shadow: 0 1px 2px rgba(14, 24, 38, 0.12), 0 10px 18px -12px rgba(14, 24, 38, 0.45);
 }
 
+/* ---------- lessons ----------
+   Video lessons on /learn/. The player is a poster until it's pressed:
+   nothing loads from YouTube before that. Below it, the chapters, stills
+   from the video, and the scene set the way it prints. */
+
+.slug a { color: inherit; text-decoration: none; }
+.slug a:hover { text-decoration: underline; }
+
+.masthead nav a[aria-current="page"] { color: #fff; }
+
+.video {
+  max-width: 58rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--navy);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(14, 24, 38, 0.12), 0 16px 30px -18px rgba(14, 24, 38, 0.6);
+}
+
+.video-frame iframe,
+.video-poster,
+.video-poster img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-poster {
+  display: block;
+  margin: 0;
+  padding: 0;
+  background: var(--navy);
+  cursor: pointer;
+}
+
+.video-poster img { object-fit: cover; }
+
+/* Bottom left, over the phone: the thumbnails keep their title on the right. */
+.video-play {
+  position: absolute;
+  left: 1.1rem;
+  bottom: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 1rem 0.45rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(14, 24, 38, 0.9);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18), 0 6px 16px -6px rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-family: "Archivo", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.video-play::before {
+  content: "";
+  flex: none;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  background: var(--rev-goldenrod)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 6.5v11l9-5.5z' fill='%230e1826'/%3E%3C/svg%3E")
+    center / 1.35rem no-repeat;
+}
+
+.video-len {
+  font-family: "Courier Prime", ui-monospace, monospace;
+  font-weight: 400;
+  font-size: 0.82rem;
+  color: #b9c2ce;
+}
+
+.video-poster:hover .video-play { transform: translateY(-1px); background: var(--navy); }
+.video-poster:focus-visible { outline: 3px solid var(--rev-goldenrod); outline-offset: -3px; }
+
+.video-note {
+  font-family: "Courier Prime", ui-monospace, monospace;
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin: 0.8rem 0 0;
+}
+
+.video-note a { color: var(--muted); }
+
+.chapters-label {
+  font-family: "Courier Prime", ui-monospace, monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 2.2rem 0 0.6rem;
+}
+
+.chapters {
+  list-style: none;
+  margin: 0 0 0.6rem;
+  padding: 0;
+  column-gap: 2rem;
+  font-size: 0.94rem;
+  line-height: 1.4;
+}
+
+.chapters.two-col { columns: 2 15rem; }
+
+.chapters li { margin: 0 0 0.45rem; break-inside: avoid; }
+
+.chapters a {
+  display: inline-flex;
+  gap: 0.7rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.chapters a:hover span:last-child { text-decoration: underline; text-underline-offset: 2px; }
+
+.chapters .t {
+  flex: none;
+  min-width: 2.6rem;
+  font-family: "Courier Prime", ui-monospace, monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--gold);
+  padding-top: 0.08rem;
+}
+
+.still { margin: 1.6rem 0 1.8rem; }
+
+.still img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  background: var(--navy);
+  box-shadow: 0 1px 2px rgba(14, 24, 38, 0.12), 0 10px 18px -12px rgba(14, 24, 38, 0.45);
+}
+
+.still figcaption {
+  font-family: "Courier Prime", ui-monospace, monospace;
+  font-size: 0.74rem;
+  line-height: 1.5;
+  color: var(--muted);
+  margin-top: 0.7rem;
+}
+
+.mono {
+  font-family: "Courier Prime", ui-monospace, monospace;
+  font-size: 0.92em;
+}
+
+/* The scene as it prints. Indents follow the usual page (1.5" left margin,
+   6" of text): character 2", dialogue 1" to 4.5", parenthetical 1.5" to 4",
+   transitions on the right. As percentages of the text width, so a phone
+   keeps the shape and wraps a little sooner. */
+
+.screenplay {
+  margin: 1.6rem 0 2rem;
+  padding: 1.7rem 1.6rem 1.9rem;
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(14, 24, 38, 0.06), 0 12px 24px -20px rgba(14, 24, 38, 0.5);
+  font-family: "Courier Prime", ui-monospace, monospace;
+  font-size: 15px;
+  line-height: 1.25;
+  color: #111;
+  font-variant-numeric: normal;
+}
+
+.screenplay p { margin: 1.25em 0 0; }
+.screenplay > :first-child { margin-top: 0; }
+
+.screenplay .sh { font-weight: 700; text-transform: uppercase; }
+.screenplay .ch { margin-left: 33.3%; text-transform: uppercase; }
+.screenplay .pa { margin: 0 0 0 25%; max-width: 41.7%; padding-left: 1ch; text-indent: -1ch; }
+.screenplay .di { margin: 0 0 0 16.7%; max-width: 58.3%; }
+.screenplay .tr { text-align: right; text-transform: uppercase; }
+
+.screenplay .dual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2ch;
+  margin-top: 1.25em;
+}
+
+.screenplay .dual p { margin: 0; }
+.screenplay .dual .ch { margin-left: 22%; }
+.screenplay .dual .di { margin-left: 0; max-width: none; }
+
+.screenplay-label {
+  font-family: "Courier Prime", ui-monospace, monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 1.8rem 0 -0.9rem;
+}
+
+/* Lesson cards: the hub, the homepage, "next lesson". */
+
+.lessons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.8rem 1.6rem;
+  margin: 1.6rem 0 1.2rem;
+}
+
+.lesson {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.lesson-poster {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--navy);
+  box-shadow: 0 1px 2px rgba(14, 24, 38, 0.12), 0 10px 18px -12px rgba(14, 24, 38, 0.45);
+}
+
+.lesson-poster img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.lesson-len {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  padding: 0.18rem 0.45rem;
+  border-radius: 4px;
+  background: rgba(14, 24, 38, 0.88);
+  color: #fff;
+  font-family: "Courier Prime", ui-monospace, monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.lesson-kicker {
+  display: block;
+  margin: 0.95rem 0 0.25rem;
+  font-family: "Courier Prime", ui-monospace, monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--el-scene);
+}
+
+.lesson-title {
+  display: block;
+  font-family: "Archivo", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 1.12rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.lesson-sum {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.94rem;
+  line-height: 1.5;
+  color: #43474e;
+}
+
+.lesson:hover .lesson-title { color: var(--gold); }
+.lesson:focus-visible { outline: 2px solid var(--el-scene); outline-offset: 4px; border-radius: 4px; }
+
+.lessons.one { grid-template-columns: 1fr; }
+
+/* One lesson on its own: poster beside the text, not a second hero. */
+.lessons.one .lesson {
+  display: grid;
+  grid-template-columns: minmax(0, 15rem) 1fr;
+  column-gap: 1.3rem;
+  align-items: center;
+}
+
+.lessons.one .lesson-kicker { margin-top: 0; }
+
+@media (max-width: 560px) {
+  .lessons.one .lesson { grid-template-columns: 1fr; }
+  .lessons.one .lesson-kicker { margin-top: 0.95rem; }
+}
+
+.table-scroll.compact table { min-width: 0; }
+
 /* ---------- footer ---------- */
 
 .foot {
@@ -428,6 +733,13 @@ tbody tr.is-us td:first-child { font-weight: 700; }
 @media (max-width: 560px) {
   body { font-size: 17.5px; }
   .scene { padding-left: 1.1rem; margin-left: -1.1rem; }
+  .masthead nav a[href="/"] { display: none; }
+  .video { padding: 0; }
+  .video-frame { border-radius: 0; }
+  .video-note { padding: 0 1.5rem; }
+  .video-play { left: 0.7rem; bottom: 0.7rem; font-size: 0.85rem; padding-right: 0.8rem; }
+  .video-play::before { width: 1.8rem; height: 1.8rem; background-size: 1.15rem; }
+  .screenplay { font-size: 13px; padding: 1.2rem 0.9rem 1.4rem; }
 }
 
 a:focus-visible,
