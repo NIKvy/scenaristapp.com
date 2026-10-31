@@ -715,6 +715,42 @@ tbody tr.is-us td:first-child { font-weight: 700; }
 
 .table-scroll.compact table { min-width: 0; }
 
+/* A YouTube script as it reads in Scenarist: every line with its type,
+   labelled in the app's colours (hook red, B-roll green, on-screen text
+   cyan, call to action orange), darkened to read on white. */
+
+.eyebrow.yt-hook  { color: #c62f26; }
+.eyebrow.yt-broll { color: #2b7a3b; }
+.eyebrow.yt-cta   { color: #b35a00; }
+
+.screenplay.yt p {
+  display: grid;
+  grid-template-columns: 9ch minmax(0, 1fr);
+  column-gap: 2ch;
+  align-items: baseline;
+  margin-top: 1em;
+}
+
+.screenplay.yt > :first-child { margin-top: 0; }
+
+.screenplay.yt .el {
+  font-size: 0.78em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.screenplay.yt .yt-hook { font-weight: 700; }
+.screenplay.yt .yt-hook .el     { color: #c62f26; }
+.screenplay.yt .yt-broll .el    { color: #2b7a3b; }
+.screenplay.yt .yt-onscreen .el { color: #0a7487; }
+.screenplay.yt .yt-cta .el      { color: #b35a00; }
+
+@media (max-width: 560px) {
+  .screenplay.yt p { grid-template-columns: 1fr; row-gap: 0.2em; }
+}
+
 /* ---------- footer ---------- */
 
 .foot {
