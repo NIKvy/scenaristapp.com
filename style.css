@@ -212,6 +212,14 @@ tbody td {
   vertical-align: top;
 }
 
+tbody th {
+  text-align: left;
+  font-weight: 700;
+  padding: 0.7rem 0.8rem 0.7rem 0;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+
 tbody tr.is-us td { background: rgba(201, 162, 39, 0.09); }
 tbody tr.is-us td:first-child { font-weight: 700; }
 
