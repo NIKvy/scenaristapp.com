@@ -7,6 +7,7 @@ Languages: English, German, Italian, Spanish, French, Portuguese (Brazil), Russi
 Developer: Mykola Viunyk (independent)
 Website: https://scenaristapp.com
 Lessons: https://scenaristapp.com/learn/
+Try it in the browser: https://scenaristapp.com/try/ (a free screenplay formatter: type a scene, see the page, download .fountain)
 YouTube: https://www.youtube.com/@Scenaristapp
 App Store: https://apps.apple.com/app/id6762529535
 

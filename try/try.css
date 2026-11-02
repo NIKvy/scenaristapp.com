@@ -1,0 +1,211 @@
+/* Try page — the editable screenplay page.
+   The paper is the lessons' .screenplay block made editable. Indents are
+   percentages of the text width, as on the lesson pages; the type size
+   follows the width so a desktop page holds the usual 60 characters per
+   line, and a phone keeps the shape at a size you can still read. */
+
+.try-head { padding: 3.4rem 0 1.4rem; }
+
+.try-bar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 0 0.6rem;
+}
+
+.try-title-wrap { flex: 1 1 auto; min-width: 0; }
+
+.try-title {
+  width: 100%;
+  min-width: 0;
+  font-family: "Courier Prime", ui-monospace, monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  border-radius: 0;
+  padding: 0.3rem 0;
+  outline: none;
+}
+
+.try-title:focus { border-bottom-color: var(--ink); }
+.try-title::placeholder { color: var(--muted); opacity: 1; }
+
+.try-count {
+  flex: none;
+  margin: 0;
+  font-family: "Courier Prime", ui-monospace, monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.try-paper { position: relative; }
+
+.try-page {
+  container-type: inline-size;
+  min-height: 26rem;
+  padding: 1.7rem 1.6rem 2.6rem;
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(14, 24, 38, 0.06), 0 12px 24px -20px rgba(14, 24, 38, 0.5);
+  font-family: "Courier Prime", ui-monospace, monospace;
+  font-size: 15px;
+  line-height: 1.25;
+  color: #111;
+  font-variant-numeric: normal;
+  cursor: text;
+  caret-color: var(--el-scene);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.try-page:focus { outline: none; border-color: #c9c8c1; }
+.try-page:focus-visible { box-shadow: 0 0 0 3px rgba(47, 127, 196, 0.22), 0 12px 24px -20px rgba(14, 24, 38, 0.5); }
+
+/* One line of the script. The element type is the data-t attribute. */
+.ln {
+  position: relative;
+  min-height: 1.25em;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 15px;
+  font-size: clamp(12.5px, 2.78cqw, 15.5px);
+}
+
+.ln[data-t="scene"]         { font-weight: 700; text-transform: uppercase; }
+.ln[data-t="character"]     { margin-left: 33.3%; text-transform: uppercase; }
+.ln[data-t="parenthetical"] { margin-left: 25%; max-width: 41.7%; }
+.ln[data-t="dialogue"]      { margin-left: 16.7%; max-width: 58.3%; }
+.ln[data-t="transition"]    { text-align: right; text-transform: uppercase; }
+.ln[data-t="centered"]      { text-align: center; }
+.ln[data-t="note"]          { color: var(--muted); }
+
+/* Narrow paper: pull the dialogue block left so it still gets a few words
+   per line. The page keeps the recognisable shape. */
+@container (max-width: 430px) {
+  .ln[data-t="character"]     { margin-left: 28%; }
+  .ln[data-t="dialogue"]      { margin-left: 12%; max-width: 74%; }
+  .ln[data-t="parenthetical"] { margin-left: 20%; max-width: 58%; }
+}
+
+/* Empty page: the first line shows a hint, out of the caret's way. */
+.try-page.is-empty .ln:first-child::before {
+  content: "INT. KITCHEN - NIGHT";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #a2a6ad;
+  pointer-events: none;
+}
+
+/* The element the caret is on, in the app's colours. */
+.try-el {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.8rem;
+  font-family: "Courier Prime", ui-monospace, monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  pointer-events: none;
+  transition: color 0.12s ease;
+}
+
+.try-el[data-t="scene"]      { color: var(--el-scene); }
+.try-el[data-t="character"]  { color: var(--el-character); }
+.try-el[data-t="dialogue"]   { color: var(--el-character); }
+.try-el[data-t="parenthetical"] { color: var(--el-character); }
+.try-el[data-t="transition"] { color: var(--el-shot); }
+
+.try-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 0.8rem;
+  margin: 1.1rem 0 0.5rem;
+}
+
+.try-actions .btn,
+.btn-quiet {
+  border: 0;
+  cursor: pointer;
+  line-height: 1.2;
+}
+
+/* .btn sets display, which would beat the hidden attribute. */
+.try-actions [hidden] { display: none; }
+
+.btn-quiet {
+  font-family: "Archivo", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  padding: 0.65rem 1.2rem;
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+}
+
+.btn-quiet:hover { border-color: var(--ink); }
+.btn-quiet.is-arm { border-color: #b3261e; color: #b3261e; }
+.btn.is-done { background: var(--rev-green); }
+
+.try-actions .btn:focus-visible,
+.btn-quiet:focus-visible { outline: 2px solid var(--el-scene); outline-offset: 3px; }
+
+.try-note {
+  font-family: "Courier Prime", ui-monospace, monospace;
+  font-size: 0.76rem;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 0.4rem 0 0;
+}
+
+.try-note a { color: var(--muted); }
+
+/* The rules, as a small glossary. */
+.rules {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem 2rem;
+  margin: 1.4rem 0 1.4rem;
+}
+
+.rules > div { border-top: 1px solid var(--rule); padding-top: 0.7rem; }
+
+.rules dt {
+  font-family: "Courier Prime", ui-monospace, monospace;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+}
+
+.rules dd { margin: 0; font-size: 0.94rem; line-height: 1.5; color: #43474e; }
+
+.cta .quiet { color: #b9c2ce; border-bottom-color: rgba(255, 255, 255, 0.25); }
+.cta .quiet:hover { color: #fff; border-bottom-color: #fff; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+  .try-page { min-height: 20rem; padding: 1.2rem 0.9rem 2.2rem; }
+  .try-el { top: 0.45rem; right: 0.6rem; }
+  .try-actions .btn, .btn-quiet { font-size: 0.9rem; padding: 0.6rem 1rem; }
+}

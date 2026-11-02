@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free Online Screenplay Formatter: Type a Scene, See the Format | Scenarist</title>
+<meta name="description" content="A free screenplay formatter in your browser. Type a scene in plain text and watch it set itself as a screenplay page: scene headings, characters, dialogue, parentheticals and transitions in Courier. No sign-up, nothing uploaded. Download it as Fountain or send it to Scenarist on your iPhone.">
+<link rel="canonical" href="https://scenaristapp.com/try/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Type a scene. Watch it format. | Scenarist">
+<meta property="og:description" content="A free screenplay formatter in your browser. Type in plain text, see a formatted page. No sign-up, nothing uploaded.">
+<meta property="og:url" content="https://scenaristapp.com/try/">
+<meta property="og:image" content="https://scenaristapp.com/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Scenarist">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="apple-itunes-app" content="app-id=6762529535">
+<link rel="preload" href="/fonts/source-serif-4-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/archivo-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/courier-prime-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/try/try.css">
+<link rel="icon" href="/AppIcon.png">
+<link rel="apple-touch-icon" href="/AppIcon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Scenarist screenplay formatter",
+  "url": "https://scenaristapp.com/try/",
+  "applicationCategory": "Productivity",
+  "applicationSubCategory": "Screenwriting",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires JavaScript",
+  "isAccessibleForFree": true,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Person", "name": "Mykola Viunyk" },
+  "isPartOf": { "@type": "WebSite", "url": "https://scenaristapp.com/", "name": "Scenarist" },
+  "description": "Type a scene in plain text and see it formatted as a screenplay page in the browser. Follows the Fountain conventions; exports a .fountain file that opens in Scenarist and other screenwriting apps. Nothing is uploaded."
+}
+</script>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark" href="/">Scenar<span>i</span>st</a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/try/" aria-current="page">Try</a>
+      <a href="/learn/">Learn</a>
+      <a href="https://apps.apple.com/us/app/scenarist/id6762529535">App&nbsp;Store</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<div class="head try-head">
+  <p class="slug">INT. YOUR BROWSER &ndash; NOW</p>
+  <h1>Type a scene. Watch it format.</h1>
+  <p class="standfirst">Type in plain text &mdash; INT. for a scene, a NAME in capitals, the lines under it &mdash; and the page sets it as a screenplay as you go. Nothing is uploaded.</p>
+</div>
+
+<section class="try-editor" aria-label="Screenplay editor">
+  <div class="try-bar">
+    <label class="try-title-wrap"><span class="visually-hidden">Title</span>
+      <input id="title" class="try-title" type="text" placeholder="Untitled" autocomplete="off" spellcheck="false" maxlength="80">
+    </label>
+    <p class="try-count" id="count" aria-live="polite">0 words</p>
+  </div>
+
+  <div class="try-paper">
+    <div class="try-page is-empty" id="page" contenteditable="plaintext-only" role="textbox" aria-multiline="true" aria-label="Screenplay page" spellcheck="true" enterkeyhint="enter"><div class="ln" data-t="blank"><br></div></div>
+    <span class="try-el" id="el" aria-hidden="true"></span>
+  </div>
+
+  <div class="try-actions">
+    <button class="btn" id="share" type="button" hidden>Send to Scenarist</button>
+    <button class="btn" id="download" type="button">Download .fountain</button>
+    <button class="btn-quiet" id="copy" type="button">Copy</button>
+    <button class="btn-quiet" id="clear" type="button">Clear</button>
+  </div>
+  <p class="try-note">Saved in this browser as you type, nowhere else. Stuck? <a href="#" id="example">Load an example scene</a>. On an iPhone or iPad, <a href="https://apps.apple.com/us/app/scenarist/id6762529535">Scenarist</a> opens the .fountain file and you keep writing there.</p>
+</section>
+
+<section class="scene try-rules" data-rev="blue">
+  <span class="eyebrow">Scene heading</span>
+  <h2>How the page reads what you type</h2>
+  <p>These are the <a href="/what-is-fountain.html">Fountain</a> conventions &mdash; the plain-text screenplay format that Scenarist, Final Draft, Highland and Slugline all read.</p>
+  <dl class="rules">
+    <div><dt>INT. KITCHEN - NIGHT</dt><dd>A line that starts with INT., EXT. or I/E is a scene heading.</dd></div>
+    <div><dt>MAYA</dt><dd>A name in capitals after an empty line is a character.</dd></div>
+    <div><dt>Where were you?</dt><dd>The lines right under a character are that character&rsquo;s dialogue.</dd></div>
+    <div><dt>(quietly)</dt><dd>Parentheses on their own line, inside dialogue, are a parenthetical.</dd></div>
+    <div><dt>CUT TO:</dt><dd>Capitals ending in TO: are a transition, set to the right edge.</dd></div>
+    <div><dt>&crarr; &crarr;</dt><dd>An empty line ends the dialogue. Whatever comes next is action again.</dd></div>
+  </dl>
+  <p class="aside">In the app none of this is on you. Scenarist formats as you type, capitalises names and headings, and Smart Keys and autocomplete fill in the cast, the locations and the (V.O.).</p>
+</section>
+
+<section class="cta">
+  <span class="kicker">Keep writing</span>
+  <h2>Finish it in Scenarist</h2>
+  <p>Free on the App Store. Formatting as you type, voice dictation, index cards, and PDF, Final Draft and Fountain export. No account, no ads.</p>
+  <p class="hero-actions"><a class="btn" href="https://apps.apple.com/us/app/scenarist/id6762529535">Get it on the App Store</a> <a class="quiet" href="/learn/">Watch the lessons</a></p>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>&copy; 2026 Mykola Viunyk &middot; <a href="/">scenaristapp.com</a> &middot; <a href="https://www.youtube.com/@Scenaristapp">YouTube</a> &middot; <a href="/privacy.html">Privacy</a> &middot; <a href="/terms.html">Terms</a></p>
+  </div>
+</footer>
+
+<script src="/try/try.js" defer></script>
+</body>
+</html>
