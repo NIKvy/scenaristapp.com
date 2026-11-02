@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["MRWF644W5B.com.MykolaViunyk.Scenarium"],
+        "components": [
+          { "/": "/open", "comment": "A scene written on the Try page, carried in the link" },
+          { "/": "/open/*", "comment": "A scene written on the Try page, carried in the link" }
+        ]
+      }
+    ]
+  }
+}

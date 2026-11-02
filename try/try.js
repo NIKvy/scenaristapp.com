@@ -15,18 +15,24 @@
   var shareBtn = document.getElementById('share');
   var downloadBtn = document.getElementById('download');
   var copyBtn = document.getElementById('copy');
+  var linkBtn = document.getElementById('link');
+  var openAppBtn = document.getElementById('openapp');
   var clearBtn = document.getElementById('clear');
   var exampleLink = document.getElementById('example');
   if (!root) return;
 
   var STORAGE_KEY = 'scenarist.try.v1';
-  var APP_STORE = 'https://apps.apple.com/us/app/scenarist/id6762529535';
+  // "Open in Scenarist" hands the scene to the app through scenarist://open.
+  // Scenarist 1.13 is the first version that answers it; until that is on the
+  // App Store the button stays off, because iOS shows an error for a scheme
+  // no app claims.
+  var OPEN_IN_APP = false;
+  // A link holds the whole scene; past this it is a download, not a link.
+  var MAX_LINK_PAYLOAD = 24000;
 
-  var LABELS = {
-    blank: '', scene: 'Scene heading', action: 'Action', character: 'Character',
-    dialogue: 'Dialogue', parenthetical: 'Parenthetical', transition: 'Transition',
-    centered: 'Centered', note: 'Note'
-  };
+  var F = window.ScenaristFountain;
+  var LABELS = F.LABELS;
+  var classify = F.classify;
 
   var EXAMPLE = [
     'INT. RADIO STATION - NIGHT',
@@ -47,68 +53,6 @@
 
   var model = { lines: [''], types: ['blank'] };
   var saveTimer = null;
-
-  /* ---------- Fountain-ish classification ---------- */
-
-  var SCENE = /^(?:INT|EXT|EST|INT\.?\/EXT|I\/E)[.\s]/i;
-  var TRANSITION_WORDS = /^(?:FADE OUT|FADE TO BLACK|CUT TO BLACK|SMASH CUT|THE END)[.:]?$/;
-
-  function isUpper(s) {
-    return /[A-Za-z]/.test(s) && s === s.toUpperCase();
-  }
-
-  // "JUNE (CONT'D) ^" -> "JUNE"
-  function baseName(s) {
-    return s.replace(/\s*\^\s*$/, '').replace(/(\s*\([^)]*\)\s*)+$/, '').trim();
-  }
-
-  function inDialogue(prev) {
-    return prev === 'character' || prev === 'parenthetical' || prev === 'dialogue';
-  }
-
-  function classify(lines) {
-    var types = new Array(lines.length);
-    for (var i = 0; i < lines.length; i++) {
-      var t = lines[i].trim();
-      var prev = i > 0 ? types[i - 1] : 'blank';
-      var afterBlank = prev === 'blank';
-      var type;
-
-      if (t === '') {
-        type = 'blank';
-      } else if (inDialogue(prev)) {
-        type = t.charAt(0) === '(' ? 'parenthetical' : 'dialogue';
-      } else if (t.charAt(0) === '!') {
-        type = 'action';
-      } else if (t.charAt(0) === '#' || t.charAt(0) === '=') {
-        type = 'note';
-      } else if (t.charAt(0) === '@' && afterBlank) {
-        type = 'character';
-      } else if ((t.charAt(0) === '.' && t.charAt(1) !== '.') || SCENE.test(t)) {
-        type = 'scene';
-      } else if (/^>.*<$/.test(t)) {
-        type = 'centered';
-      } else if (t.charAt(0) === '>') {
-        type = 'transition';
-      } else if (afterBlank && isUpper(t) && (/TO:$/.test(t) || TRANSITION_WORDS.test(t))) {
-        type = 'transition';
-      } else if (afterBlank && looksLikeCharacter(t)) {
-        type = 'character';
-      } else {
-        type = 'action';
-      }
-      types[i] = type;
-    }
-    return types;
-  }
-
-  function looksLikeCharacter(t) {
-    var name = baseName(t);
-    if (!name || !isUpper(name)) return false;
-    if (/[:.!?,;]$/.test(name)) return false;          // FADE IN:, BANG!, THE END.
-    if (name.split(/\s+/).length > 6) return false;     // a shouted action line
-    return true;
-  }
 
   /* ---------- DOM <-> lines ---------- */
 
@@ -391,9 +335,10 @@
     clearBtn.textContent = 'Clear';
   }
 
-  // Web Share with a file: on iPhone and iPad the share sheet lists Scenarist
-  // as an app that opens .fountain. Shown only where the browser can do it.
-  var isApple = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+  // Web Share with a file: the share sheet, with AirDrop, Files, Mail — and,
+  // from Scenarist 1.13, Scenarist itself (it opens text documents). Shown
+  // only where the browser can share files.
+  var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
     (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   var canShareFiles = false;
   try {
@@ -402,11 +347,40 @@
 
   if (canShareFiles) {
     shareBtn.hidden = false;
-    shareBtn.textContent = isApple ? 'Send to Scenarist' : 'Share…';
     shareBtn.addEventListener('click', function () {
       if (!hasText()) { root.focus(); return; }
       navigator.share({ files: [makeFile()], title: titleInput.value.trim() || 'Scene' })
         .catch(function () { /* cancelled, or the sheet refused the file */ });
+    });
+  }
+
+  // The scene as a link: https://scenaristapp.com/open/#f=… — opens in the app
+  // on an iPhone or iPad that has Scenarist, shows the page everywhere else.
+  // The scene rides in the fragment, which browsers never send to the server.
+  function sceneLink() {
+    var payload = F.encode(fountainText());
+    if (payload.length > MAX_LINK_PAYLOAD) return null;
+    return 'https://scenaristapp.com/open/#f=' + payload;
+  }
+
+  linkBtn.addEventListener('click', function () {
+    if (!hasText()) { root.focus(); return; }
+    var url = sceneLink();
+    if (!url) { flash(linkBtn, 'Too long for a link'); return; }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(function () { flash(linkBtn, 'Link copied'); }, function () { flash(linkBtn, 'Could not copy'); });
+    } else {
+      flash(linkBtn, 'Could not copy');
+    }
+  });
+
+  if (OPEN_IN_APP && isIOS) {
+    openAppBtn.hidden = false;
+    openAppBtn.addEventListener('click', function () {
+      if (!hasText()) { root.focus(); return; }
+      var payload = F.encode(fountainText());
+      if (payload.length > MAX_LINK_PAYLOAD) { flash(openAppBtn, 'Too long — download instead'); return; }
+      window.location.href = 'scenarist://open?f=' + payload;
     });
   }
 

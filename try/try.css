@@ -209,3 +209,8 @@
   .try-el { top: 0.45rem; right: 0.6rem; }
   .try-actions .btn, .btn-quiet { font-size: 0.9rem; padding: 0.6rem 1rem; }
 }
+
+/* /open/: the same paper, read only. */
+.try-readonly { cursor: default; min-height: 10rem; caret-color: transparent; }
+.try-readonly:focus { border-color: var(--rule); }
+p.try-title { margin: 0; border-bottom: 0; }

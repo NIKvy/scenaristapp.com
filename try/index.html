@@ -77,12 +77,14 @@
   </div>
 
   <div class="try-actions">
-    <button class="btn" id="share" type="button" hidden>Send to Scenarist</button>
+    <button class="btn" id="openapp" type="button" hidden>Open in Scenarist</button>
     <button class="btn" id="download" type="button">Download .fountain</button>
-    <button class="btn-quiet" id="copy" type="button">Copy</button>
+    <button class="btn-quiet" id="share" type="button" hidden>Share&hellip;</button>
+    <button class="btn-quiet" id="link" type="button">Copy link</button>
+    <button class="btn-quiet" id="copy" type="button">Copy text</button>
     <button class="btn-quiet" id="clear" type="button">Clear</button>
   </div>
-  <p class="try-note">Saved in this browser as you type, nowhere else. Stuck? <a href="#" id="example">Load an example scene</a>. On an iPhone or iPad, <a href="https://apps.apple.com/us/app/scenarist/id6762529535">Scenarist</a> opens the .fountain file and you keep writing there.</p>
+  <p class="try-note">Saved in this browser as you type, nowhere else. Stuck? <a href="#" id="example">Load an example scene</a>. <strong>Copy link</strong> puts the whole scene inside a link: on an iPhone or iPad with <a href="https://apps.apple.com/us/app/scenarist/id6762529535">Scenarist</a> it opens in the app; anywhere else it shows as a page. The .fountain file opens in Scenarist and most screenwriting apps.</p>
 </section>
 
 <section class="scene try-rules" data-rev="blue">
@@ -115,6 +117,7 @@
   </div>
 </footer>
 
+<script src="/try/fountain-lite.js"></script>
 <script src="/try/try.js" defer></script>
 </body>
 </html>
