@@ -23,10 +23,10 @@
 
   var STORAGE_KEY = 'scenarist.try.v1';
   // "Open in Scenarist" hands the scene to the app through scenarist://open.
-  // Scenarist 1.13 is the first version that answers it; until that is on the
-  // App Store the button stays off, because iOS shows an error for a scheme
-  // no app claims.
-  var OPEN_IN_APP = false;
+  // Scenarist 1.13 is the first version that answers it, so the button was off
+  // until 1.13 was on the App Store. On a device without 1.13 or later iOS
+  // still shows its error for a scheme no app claims.
+  var OPEN_IN_APP = true;
   // A link holds the whole scene; past this it is a download, not a link.
   var MAX_LINK_PAYLOAD = 24000;
 

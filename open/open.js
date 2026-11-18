@@ -14,7 +14,7 @@
   var editBtn = document.getElementById('edit');
   var downloadBtn = document.getElementById('download');
 
-  var OPEN_IN_APP = false; // on once Scenarist 1.13 (scenarist://open) is on the App Store
+  var OPEN_IN_APP = true; // on since Scenarist 1.13 (scenarist://open) is on the App Store
   var STORAGE_KEY = 'scenarist.try.v1';
 
   var payload = F.payloadFrom(window.location);
